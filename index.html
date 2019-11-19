@@ -1,0 +1,100 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="./reset.css" />
+
+    <style>
+        .main-menu {
+            display: flex;
+            flex-direction: row;
+        }
+        @media (max-width: 800px) {
+            .main-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+        }
+
+
+        
+        .main-menu__hamburger {
+            display: none;
+        }
+        @media (max-width: 800px) {
+            .main-menu__hamburger {
+                display: block;
+            }
+        }
+
+
+
+
+        .main-menu__items {
+            display: flex;
+            flex-direction: row;
+        }
+        @media (max-width: 800px) {
+            .main-menu__items {
+                flex-direction: column;
+            }
+        }
+
+
+        .main-menu__item {
+            padding: 10px;
+            color: #ffffff;
+            background-color: #c0c0c0;
+        }
+        @media (max-width: 800px) {
+            .main-menu__item {
+                padding-left: 2px;
+                background-color: #00ff00;
+            }
+        }
+
+
+        @media (max-width: 800px) {
+            .main-menu__items--movil-visible {
+                display: block;
+            }
+
+            .main-menu__items--movil-hide {
+                display: none;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleVisibilityMenu() {
+            var itemsElements = document.getElementsByClassName("main-menu__items");
+            var hamburgerElements = document.getElementsByClassName("main-menu__hamburger");
+
+            if (itemsElements[0].className.indexOf("main-menu__items--movil-visible") >= 0) {
+                itemsElements[0].className = " main-menu__items main-menu__items--movil-hide";
+                hamburgerElements[0].innerHTML = "☰";
+            } else {
+                itemsElements[0].className = "main-menu__items main-menu__items--movil-visible";
+                hamburgerElements[0].innerHTML = "Cerrar";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="main-menu">
+        <ul class="main-menu__items main-menu__items--movil-hide">
+            <li class="main-menu__item"><a href="#home">Home</a></li>
+            <li class="main-menu__item"><a href="#news">News</a></li>
+            <li class="main-menu__item"><a href="#contact">Contact</a></li>
+            <li class="main-menu__item"><a href="#about">About</a></li>
+        </ul>
+        <a href="javascript:void(0);" class="main-menu__hamburger" onclick="toggleVisibilityMenu()">☰</a>
+    </div>
+    <h1 style="text-align: center">Mi empresa</h1>
+    <p style="height: 1200px;width: 500px;"></p>
+</body>
+
+</html>
